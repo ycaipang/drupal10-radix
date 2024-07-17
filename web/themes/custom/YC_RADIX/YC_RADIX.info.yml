@@ -1,0 +1,42 @@
+name: YC_RADIX
+description: ''
+screenshot: screenshot.png
+'alt text': 'YC_RADIX theme screenshot'
+core_version_requirement: ^10
+version: 1.0.0
+engine: twig
+type: theme
+'base theme': radix
+starterkit: true
+dependencies:
+  - 'drupal:serialization'
+'interface translation project': YC_RADIX
+'interface translation server pattern': themes/custom/YC_RADIX/translations/%language.po
+regions:
+  navbar_branding: 'Navbar branding'
+  navbar_left: 'Navbar left'
+  navbar_right: 'Navbar right'
+  header: Header
+  content: Content
+  page_bottom: 'Page bottom'
+  footer: Footer
+libraries:
+  - YC_RADIX/style
+ckeditor5-stylesheets:
+  - build/css/main.style.css
+libraries-extend:
+  core/drupal.ajax:
+    - YC_RADIX/drupal.ajax
+  core/drupal.checkbox:
+    - YC_RADIX/drupal.checkbox
+  core/drupal.dialog:
+    - YC_RADIX/drupal.dialog
+  core/drupal.dialog.ajax:
+    - YC_RADIX/drupal.dialog.ajax
+  core/drupal.message:
+    - YC_RADIX/drupal.message
+  core/drupal.progress:
+    - YC_RADIX/drupal.progress
+  clientside_validation_jquery/cv.jquery.validate:
+    - YC_RADIX/jquery.validate
+generator: 'radix_starterkit:1.0.0'
