@@ -1,4 +1,0 @@
-name: YC Radix
-recipe: drupal10
-config:
-  webroot: web
