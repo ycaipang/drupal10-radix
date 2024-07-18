@@ -23,8 +23,8 @@
 
 # subtheme dependencies
 
-/web/themes/custom/fd_drupal_radix/node_modules
-/web/themes/custom/fd_drupal_radix/.env.local
+/web/themes/custom/*/node_modules
+/web/themes/custom/*/.env.local
 
 # Ignore vendor dependencies and scripts
 /vendor
@@ -38,3 +38,5 @@
 /drupal
 /.lando
 
+/.editorconfig
+/.gitattributes
