@@ -1,4 +1,4 @@
-name: fd-drupal-radix
+name: FlagDisplays_d10xradix
 recipe: drupal10
 config:
   webroot: web
