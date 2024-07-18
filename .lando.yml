@@ -1,4 +1,7 @@
-name: drupal-radix
+name: fd-drupal-radix
 recipe: drupal10
 config:
   webroot: web
+services:
+  myservice:
+    type: php:8.2

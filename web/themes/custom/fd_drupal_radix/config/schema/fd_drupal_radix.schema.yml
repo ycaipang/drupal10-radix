@@ -1,5 +1,0 @@
-# Schema for the configuration files of the fd_drupal_radix theme.
-
-fd_drupal_radix.settings:
-  type: theme_settings
-  label: 'fd_drupal_radix settings'

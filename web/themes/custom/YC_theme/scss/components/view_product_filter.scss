@@ -1,0 +1,241 @@
+@import "../import";
+
+.js-form-item-tid-1 {
+    transition: 5s;
+}
+
+#block-exposedformproductspage-1 {
+    border: none;
+    padding: 0;
+    border-radius: 5px;
+    background: $primary-shade;
+    .js-form-item {
+        padding: 0;
+        margin-bottom: 0!important;
+        label {
+            color: $accent-shade;
+            padding: 10px 15px;
+            display: block;
+            text-transform: uppercase;
+            border-bottom: 1px solid #c5ccd35c;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
+    .form-actions {
+        margin-bottom: 0!important;
+    }
+    #edit-fd-type--2, #edit-fd-type--3 {
+        background: none;
+        padding: 0;
+        border: none;
+        ul {
+            padding: 0;
+            margin-bottom: 0;
+            ul {
+                display: none;
+                &.show {
+                    display: block;
+                }
+                li {
+                    a {
+                        padding-left: 25px;
+                    }
+                }
+            } 
+            li {
+                list-style: none;
+                a {
+                    padding: 10PX 15px;
+                    display: block;
+                    text-decoration: none;
+                    color: $gray-300;
+                    &.bef-link--selected {
+                        background-color: #f3f4f9;
+                        font-weight: 700;
+                        color: $accent-shade;
+                    }
+                    &:hover {
+                        background-color: #f3f4f9 ;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#block-exposedformproductspage-1-2 {
+    .content {
+        margin-bottom: 30px;
+        .form-item-fd-type {
+            display: none;
+        }
+        .form-item-fd-hire,
+        .form-item-fd-events,
+        .form-item-fd-industry {
+        }
+        .form-item-fd-events {
+            margin-right: 0px!important;
+        }
+    }
+    h2 {
+        line-height: 1;
+        margin-bottom: 15px;
+    }
+    #views-exposed-form-products-page-1 {
+        .exposed-row {
+            display: flex;
+            .js-form-item {
+                width: 100%;
+                margin-right: 30px;
+                margin-bottom: 0px!important;
+                background: $primary-shade;
+                padding: 10px 15px;
+                border-radius: 4px;
+                label {
+                    color: $accent-shade;
+                    margin-bottom: 10px;
+                }
+                .form-select {
+                    border: 1px solid rgba(197, 204, 211, 0.3607843137);
+                    border-radius: 4px;
+                    &:focus {
+                        box-shadow: 0 0 0 0.25rem $primary-dark;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#block-exposedformproductspage-1 {
+    .content {
+        .form-item-fd-hire,
+        .form-item-fd-events,
+        .form-item-fd-industry {
+            display: none;
+        }
+    }
+}
+
+.feather-flags,
+.rect-flags,
+.national-flags,
+.australian-flags,
+.premier-flags {
+    display: none;
+}
+
+.Feather.Flags,
+.National.Flags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-products {
+    h3 {
+        font-size: 24px;
+        &::before {
+            content: "";
+            width: 3px;
+            height: 20px;
+            background: $primary-dark;
+            position: relative;
+            display: inline-block;
+            margin-right: 2px;
+        }
+    }
+    .view-content.row {
+        align-items: center;
+        .views-row {
+            margin-bottom: 15px;
+            .views-field {
+                border-radius: 4px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background: $primary-shade;
+                &:hover {
+                    box-shadow: 0 2px 8px rgba(197, 204, 211, 0.7490196078);
+                }
+                .field-content {
+                    > div {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    // .Australian {
+                    //     .img-wrapper {
+                    //         min-height: 245px;
+                    //         padding: 0 10px;
+                    //     }
+                    // }
+                    .img-wrapper {
+                        align-self: center;
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        justify-content: center;
+                        padding: 0 10px;
+                        min-height: 245px;
+                        a {
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                    .text-wrapper {
+                        border-top: 1px solid rgba(197, 204, 211, 0.3607843137);
+                        a {
+                            color: $gray-300;
+                            text-transform: capitalize;
+                            margin: 10px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1;
+                            -webkit-box-orient: vertical;
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+        .more-btn {
+            margin-bottom: 30px;
+            text-align: -webkit-right;
+            a {
+                display: flex;
+                align-items: center;
+                background: $accent-light;
+                padding: 0.3125rem 1.25rem;
+                border-radius: 50px;
+                color: $primary-light;
+                width: fit-content;
+                &::after {
+                    content: "";
+                    width: 15px;
+                    height: 15px;
+                    -webkit-background-size: 20px 20px;
+                    background-size: 15px 15px;
+                    right: 15px;
+                    top: 15px;
+                    background-repeat: no-repeat;
+                    margin-left: 0.3125rem;
+                    mask-image: url(/themes/custom/YC_theme/images/svg/arrow-right.svg);
+                    background-color: $primary-light;
+                }
+                &:hover {
+                    text-decoration: none;
+                    background-color: $accent-shade;
+                }
+            }
+        }
+    }
+}
