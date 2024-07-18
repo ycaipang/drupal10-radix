@@ -21,6 +21,11 @@
 /web/sites/*/tmp
 /web/sites/*/cache
 
+# subtheme dependencies
+
+/web/themes/custom/fd_drupal_radix/node_modules
+/web/themes/custom/fd_drupal_radix/.env.local
+
 # Ignore vendor dependencies and scripts
 /vendor
 /composer.phar
@@ -31,4 +36,5 @@
 /drush
 /drupal.phar
 /drupal
+/.lando
 
