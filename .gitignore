@@ -36,7 +36,6 @@
 /drush
 /drupal.phar
 /drupal
-/.lando
-
+/.lando.yml
 /.editorconfig
 /.gitattributes
