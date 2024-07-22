@@ -1,0 +1,22 @@
+uuid: 756b6810-af93-4cff-8d13-9ea589a4af7c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - YC_theme
+_core:
+  default_config_hash: Qf2BoIzd9py5AYXZj8fJzCYDyVk1-AWXcu-AqQeDZKA
+id: YC_theme_local_tasks
+theme: YC_theme
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: c4f78ed7-b37e-408a-a9c4-33c9b958338a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d2cd36f9-b599-45e3-855f-1beec1f15b75'
+  module:
+    - block_content
+  theme:
+    - bootstrap_sass
+id: bootstrap_sass_socialmedia
+theme: bootstrap_sass
+region: footer_first
+weight: -13
+provider: null
+plugin: 'block_content:d2cd36f9-b599-45e3-855f-1beec1f15b75'
+settings:
+  id: 'block_content:d2cd36f9-b599-45e3-855f-1beec1f15b75'
+  label: 'social media'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

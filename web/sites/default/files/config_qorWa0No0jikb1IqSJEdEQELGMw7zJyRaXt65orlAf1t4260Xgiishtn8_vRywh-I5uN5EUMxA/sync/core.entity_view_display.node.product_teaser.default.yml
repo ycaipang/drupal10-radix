@@ -1,0 +1,95 @@
+uuid: 0762adcb-6c14-4737-8c24-9a4d198b9592
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.product_teaser.body
+    - field.field.node.product_teaser.field_accessories
+    - field.field.node.product_teaser.field_banners_category
+    - field.field.node.product_teaser.field_bunting_streamers_category
+    - field.field.node.product_teaser.field_display_exhibition_equipme
+    - field.field.node.product_teaser.field_flag_category
+    - field.field.node.product_teaser.field_image
+    - field.field.node.product_teaser.field_product_type
+    - node.type.product_teaser
+  module:
+    - image
+    - text
+    - user
+id: node.product_teaser.default
+targetEntityType: node
+bundle: product_teaser
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_accessories:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_banners_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_bunting_streamers_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_display_exhibition_equipme:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_flag_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_product_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

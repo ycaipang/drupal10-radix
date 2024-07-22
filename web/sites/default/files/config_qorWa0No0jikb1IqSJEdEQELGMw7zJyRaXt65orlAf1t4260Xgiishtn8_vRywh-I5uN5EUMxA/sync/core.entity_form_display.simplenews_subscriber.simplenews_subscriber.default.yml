@@ -1,0 +1,52 @@
+uuid: a0030597-ec92-476e-aded-875efc21b5f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_city
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_first_name
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_last_name
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_name
+  module:
+    - simplenews
+_core:
+  default_config_hash: B6jTpfCcRq6-Up1A7suyRv2B-4Wo1Xpn0igX9lus_ik
+id: simplenews_subscriber.simplenews_subscriber.default
+targetEntityType: simplenews_subscriber
+bundle: simplenews_subscriber
+mode: default
+content:
+  field_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Enter Full name'
+    third_party_settings: {  }
+  mail:
+    type: email_default
+    weight: 0
+    region: content
+    settings:
+      placeholder: 'Enter email address'
+      size: 60
+    third_party_settings: {  }
+  status:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  subscriptions:
+    type: simplenews_subscription_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_city: true
+  field_first_name: true
+  field_last_name: true
+  uid: true

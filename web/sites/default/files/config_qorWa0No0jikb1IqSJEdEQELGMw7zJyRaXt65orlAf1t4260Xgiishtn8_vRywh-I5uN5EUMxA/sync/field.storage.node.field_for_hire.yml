@@ -1,0 +1,20 @@
+uuid: 3ab8d753-a50c-44e9-889f-ac1e6d7622ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_for_hire
+field_name: field_for_hire
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

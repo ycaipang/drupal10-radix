@@ -1,0 +1,42 @@
+name: fd_drupal_radix
+description: ''
+screenshot: screenshot.png
+'alt text': 'fd_drupal_radix theme screenshot'
+core_version_requirement: ^10
+version: 1.0.0
+engine: twig
+type: theme
+'base theme': radix
+starterkit: true
+dependencies:
+  - 'drupal:serialization'
+'interface translation project': fd_drupal_radix
+'interface translation server pattern': themes/custom/fd_drupal_radix/translations/%language.po
+regions:
+  navbar_branding: 'Navbar branding'
+  navbar_left: 'Navbar left'
+  navbar_right: 'Navbar right'
+  header: Header
+  content: Content
+  page_bottom: 'Page bottom'
+  footer: Footer
+libraries:
+  - fd_drupal_radix/style
+ckeditor5-stylesheets:
+  - build/css/main.style.css
+libraries-extend:
+  core/drupal.ajax:
+    - fd_drupal_radix/drupal.ajax
+  core/drupal.checkbox:
+    - fd_drupal_radix/drupal.checkbox
+  core/drupal.dialog:
+    - fd_drupal_radix/drupal.dialog
+  core/drupal.dialog.ajax:
+    - fd_drupal_radix/drupal.dialog.ajax
+  core/drupal.message:
+    - fd_drupal_radix/drupal.message
+  core/drupal.progress:
+    - fd_drupal_radix/drupal.progress
+  clientside_validation_jquery/cv.jquery.validate:
+    - fd_drupal_radix/jquery.validate
+generator: 'radix_starterkit:1.0.0'

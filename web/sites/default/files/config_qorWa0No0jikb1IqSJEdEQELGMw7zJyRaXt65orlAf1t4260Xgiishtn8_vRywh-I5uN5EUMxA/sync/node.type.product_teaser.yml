@@ -1,0 +1,17 @@
+uuid: 0e49c253-125d-4b84-ab72-6db141b64bbd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Product teaser'
+type: product_teaser
+description: "a teaser of a product and or it's category"
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

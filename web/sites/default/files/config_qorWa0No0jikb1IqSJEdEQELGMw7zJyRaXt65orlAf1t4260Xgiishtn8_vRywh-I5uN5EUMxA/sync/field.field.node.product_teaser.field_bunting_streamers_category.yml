@@ -1,0 +1,29 @@
+uuid: dee8b466-9fc4-4d4b-9774-1ac39beec618
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bunting_streamers_category
+    - node.type.product_teaser
+    - taxonomy.vocabulary.bunting_streamers
+id: node.product_teaser.field_bunting_streamers_category
+field_name: field_bunting_streamers_category
+entity_type: node
+bundle: product_teaser
+label: 'Bunting/Streamers Category'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      bunting_streamers: bunting_streamers
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

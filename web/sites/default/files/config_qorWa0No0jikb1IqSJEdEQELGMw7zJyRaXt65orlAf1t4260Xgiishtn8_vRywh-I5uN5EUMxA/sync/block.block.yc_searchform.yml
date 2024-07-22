@@ -1,0 +1,21 @@
+uuid: 0dac7262-93f2-4cca-84d2-fd58557cd898
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - YC_theme
+id: yc_searchform
+theme: YC_theme
+region: primary_menu
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

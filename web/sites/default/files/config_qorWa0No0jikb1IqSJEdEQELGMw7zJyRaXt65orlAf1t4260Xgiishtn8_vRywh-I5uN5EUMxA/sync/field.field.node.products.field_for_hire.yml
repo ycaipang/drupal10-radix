@@ -1,0 +1,33 @@
+uuid: 76dd3ff3-0d19-4108-baff-845182f38d42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_for_hire
+    - node.type.products
+    - taxonomy.vocabulary.products_for_hire
+  content:
+    - 'taxonomy_term:products_for_hire:2b60a1eb-468e-4aec-9283-effae487beb1'
+id: node.products.field_for_hire
+field_name: field_for_hire
+entity_type: node
+bundle: products
+label: 'For Hire'
+description: 'Products for hire'
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 2b60a1eb-468e-4aec-9283-effae487beb1
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      products_for_hire: products_for_hire
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

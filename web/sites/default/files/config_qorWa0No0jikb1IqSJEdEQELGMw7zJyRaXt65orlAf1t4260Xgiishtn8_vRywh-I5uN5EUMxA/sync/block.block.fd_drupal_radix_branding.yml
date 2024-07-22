@@ -1,0 +1,25 @@
+uuid: c990b958-2d65-41a2-b005-71744179b3d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - fd_drupal_radix
+_core:
+  default_config_hash: RcYrjQorHs9DJVdWhDs7ynMqx1PCYwcjWbmF6aM37Ys
+id: fd_drupal_radix_branding
+theme: fd_drupal_radix
+region: navbar_branding
+weight: -1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: bad414d3-92bf-4a91-8b29-e83c244f3723
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - YC_theme
+_core:
+  default_config_hash: kigu8pTxXt1qGR2NJ5HHdC4G2G1wsDrIjLPKBT5wUBc
+id: YC_theme_content
+theme: YC_theme
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

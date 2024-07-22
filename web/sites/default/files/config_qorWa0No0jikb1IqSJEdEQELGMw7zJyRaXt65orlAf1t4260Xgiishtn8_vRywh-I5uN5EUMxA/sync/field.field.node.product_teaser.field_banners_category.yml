@@ -1,0 +1,29 @@
+uuid: 42369fd7-dc91-45c8-a960-75efd57e1e84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banners_category
+    - node.type.product_teaser
+    - taxonomy.vocabulary.banners_category
+id: node.product_teaser.field_banners_category
+field_name: field_banners_category
+entity_type: node
+bundle: product_teaser
+label: 'Banners Category'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      banners_category: banners_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

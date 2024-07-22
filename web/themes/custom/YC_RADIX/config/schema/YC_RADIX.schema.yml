@@ -1,5 +1,0 @@
-# Schema for the configuration files of the YC_RADIX theme.
-
-YC_RADIX.settings:
-  type: theme_settings
-  label: 'YC_RADIX settings'

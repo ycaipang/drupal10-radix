@@ -1,0 +1,9 @@
+uuid: 7ac293fe-59fc-4fbd-9e81-351166651e26
+langcode: en
+status: true
+dependencies: {  }
+name: 'Products by Industry'
+vid: product_by_industry
+description: null
+weight: 0
+new_revision: false

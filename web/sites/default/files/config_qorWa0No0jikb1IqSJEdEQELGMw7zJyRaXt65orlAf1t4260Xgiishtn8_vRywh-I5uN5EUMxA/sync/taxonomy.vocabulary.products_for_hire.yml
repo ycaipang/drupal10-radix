@@ -1,0 +1,9 @@
+uuid: 2ffef0c9-9c11-4238-9a13-c2095a302ca9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Products for Hire'
+vid: products_for_hire
+description: null
+weight: 0
+new_revision: false

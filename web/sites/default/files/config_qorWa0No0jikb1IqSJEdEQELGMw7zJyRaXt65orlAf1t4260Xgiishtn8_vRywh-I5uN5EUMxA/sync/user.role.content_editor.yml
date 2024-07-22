@@ -1,0 +1,63 @@
+uuid: ed8c33c3-2cd1-4984-a148-6442970bb0b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.page
+    - node.type.product_teaser
+    - node.type.products
+    - node.type.slider
+    - taxonomy.vocabulary.tags
+  module:
+    - comment
+    - contextual
+    - file
+    - help
+    - node
+    - path
+    - system
+    - taxonomy
+    - toolbar
+_core:
+  default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access help pages'
+  - 'access toolbar'
+  - 'administer url aliases'
+  - 'create article content'
+  - 'create page content'
+  - 'create product_teaser content'
+  - 'create products content'
+  - 'create slider content'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete article revisions'
+  - 'delete own article content'
+  - 'delete own files'
+  - 'delete own page content'
+  - 'delete page revisions'
+  - 'edit any article content'
+  - 'edit any page content'
+  - 'edit any product_teaser content'
+  - 'edit any products content'
+  - 'edit any slider content'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own page content'
+  - 'edit own product_teaser content'
+  - 'edit own products content'
+  - 'edit own slider content'
+  - 'edit terms in tags'
+  - 'revert all revisions'
+  - 'view all revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'

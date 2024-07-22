@@ -10,16 +10,21 @@
 /web/sites/*/*services*.yml
 
 # Ignore paths that may contain user-generated content
-/web/sites/*/files
 /web/sites/*/public
 /web/sites/*/private
 /web/sites/*/files-public
 /web/sites/*/files-private
+/db
 
 # Ignore paths that may contain temporary files
 /web/sites/*/translations
 /web/sites/*/tmp
 /web/sites/*/cache
+
+# subtheme dependencies
+
+/web/themes/custom/*/node_modules
+/web/themes/custom/*/.env.local
 
 # Ignore vendor dependencies and scripts
 /vendor
@@ -31,5 +36,11 @@
 /drush
 /drupal.phar
 /drupal
+<<<<<<< HEAD
 /.lando.yml
+=======
+/.lando
+>>>>>>> 8d11f804783c853a2dd65bdaa8ab5ba346b44559
 
+/.editorconfig
+/.gitattributes

@@ -1,0 +1,9 @@
+uuid: 64ff8119-b794-4c22-a91e-97ee6984a2c8
+langcode: en
+status: true
+dependencies: {  }
+name: Accessories
+vid: accessories
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,9 @@
+uuid: a052345b-a014-4a0f-923c-6a66c06eb5b4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Banners Category'
+vid: banners_category
+description: null
+weight: 0
+new_revision: false

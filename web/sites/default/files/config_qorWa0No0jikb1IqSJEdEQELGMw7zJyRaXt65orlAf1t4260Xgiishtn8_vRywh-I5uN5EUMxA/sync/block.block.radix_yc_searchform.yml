@@ -1,0 +1,21 @@
+uuid: 0d7a2944-e032-4b1d-9ea9-35e0f3f6f8cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - radix
+id: radix_yc_searchform
+theme: radix
+region: navbar_branding
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

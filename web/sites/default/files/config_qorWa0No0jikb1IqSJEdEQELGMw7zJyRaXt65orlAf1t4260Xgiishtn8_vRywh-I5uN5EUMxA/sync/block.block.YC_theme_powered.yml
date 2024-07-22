@@ -1,0 +1,22 @@
+uuid: 37cc4c1e-59fe-4928-8c88-a21f7a1ef3a3
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - YC_theme
+_core:
+  default_config_hash: I6Esh8cDlPdl2POZg4MOSRUrQNYA1UNCJCxL2yqT_wc
+id: YC_theme_powered
+theme: YC_theme
+region: footer_fifth
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

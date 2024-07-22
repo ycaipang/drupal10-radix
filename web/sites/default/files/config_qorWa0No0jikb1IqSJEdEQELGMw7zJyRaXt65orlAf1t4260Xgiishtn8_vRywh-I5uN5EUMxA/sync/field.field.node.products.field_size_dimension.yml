@@ -1,0 +1,29 @@
+uuid: 8cfa145a-4371-49a9-9b51-b70444c180e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_size_dimension
+    - node.type.products
+    - taxonomy.vocabulary.size_dimension
+id: node.products.field_size_dimension
+field_name: field_size_dimension
+entity_type: node
+bundle: products
+label: Size/Dimension
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      size_dimension: size_dimension
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

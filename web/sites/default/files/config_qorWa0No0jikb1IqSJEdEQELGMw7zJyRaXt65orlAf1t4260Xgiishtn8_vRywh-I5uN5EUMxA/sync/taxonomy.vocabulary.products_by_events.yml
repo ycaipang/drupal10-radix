@@ -1,0 +1,9 @@
+uuid: 73d4b936-4150-41db-a2e4-f5b7e10dd163
+langcode: en
+status: true
+dependencies: {  }
+name: 'Products by Events'
+vid: products_by_events
+description: null
+weight: 0
+new_revision: false

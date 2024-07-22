@@ -1,0 +1,9 @@
+uuid: 36dac8a5-33fd-4aac-a247-7c2f1426c830
+langcode: en
+status: true
+dependencies: {  }
+name: Size/Dimension
+vid: size_dimension
+description: null
+weight: 0
+new_revision: false
