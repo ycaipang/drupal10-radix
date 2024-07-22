@@ -1,0 +1,18 @@
+uuid: f3b2ed9b-16eb-4716-8e4c-00e693897e7b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - radix
+id: radix_pagetitle
+theme: radix
+region: navbar_branding
+weight: -14
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

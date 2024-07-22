@@ -1,0 +1,25 @@
+uuid: 21b55719-7e3f-446b-b0f6-531d42d643a6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+  module:
+    - block_content
+  theme:
+    - radix
+id: radix_coloredtext
+theme: radix
+region: navbar_branding
+weight: -12
+provider: null
+plugin: 'block_content:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+settings:
+  id: 'block_content:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+  label: 'Colored text'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

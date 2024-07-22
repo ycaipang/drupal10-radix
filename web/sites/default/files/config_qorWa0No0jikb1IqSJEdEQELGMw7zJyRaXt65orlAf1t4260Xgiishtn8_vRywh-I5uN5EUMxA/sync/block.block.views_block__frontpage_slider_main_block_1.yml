@@ -1,0 +1,29 @@
+uuid: 37ee23bd-850c-49f3-b801-ecf8e72e4a45
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.frontpage_slider_main
+  module:
+    - system
+    - views
+  theme:
+    - YC_theme
+id: views_block__frontpage_slider_main_block_1
+theme: YC_theme
+region: featured_top
+weight: -11
+provider: null
+plugin: 'views_block:frontpage_slider_main-block_1'
+settings:
+  id: 'views_block:frontpage_slider_main-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

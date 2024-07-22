@@ -1,0 +1,25 @@
+uuid: 96228740-0d64-44c6-ab91-87e07117ae41
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d2cd36f9-b599-45e3-855f-1beec1f15b75'
+  module:
+    - block_content
+  theme:
+    - YC_theme
+id: socialmedia
+theme: YC_theme
+region: footer_first
+weight: -13
+provider: null
+plugin: 'block_content:d2cd36f9-b599-45e3-855f-1beec1f15b75'
+settings:
+  id: 'block_content:d2cd36f9-b599-45e3-855f-1beec1f15b75'
+  label: 'social media'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 87a709bf-17aa-44b0-88ed-3120ec86e83b
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - radix
+_core:
+  default_config_hash: '-laWx8WA-ikiIEH3NJQ0hVbjqk3iEuBms91LB0B4IQU'
+id: radix_help
+theme: radix
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

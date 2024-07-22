@@ -1,0 +1,20 @@
+uuid: 3f10ad62-61a9-43f7-9144-3cb55a8f19f8
+langcode: en
+status: true
+dependencies:
+  theme:
+    - fd_drupal_radix
+_core:
+  default_config_hash: 6gmz66IktUTBGvAPS-_4QjrK-3vjZku3JxQ7IkyfHSA
+id: fd_drupal_radix_local_actions
+theme: fd_drupal_radix
+region: header
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

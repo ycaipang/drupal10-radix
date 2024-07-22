@@ -1,0 +1,29 @@
+uuid: e520fd37-e1fc-4f60-bf02-6cd8d1a37276
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_flag_category
+    - node.type.product_teaser
+    - taxonomy.vocabulary.flags_category
+id: node.product_teaser.field_flag_category
+field_name: field_flag_category
+entity_type: node
+bundle: product_teaser
+label: 'Flags Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      flags_category: flags_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

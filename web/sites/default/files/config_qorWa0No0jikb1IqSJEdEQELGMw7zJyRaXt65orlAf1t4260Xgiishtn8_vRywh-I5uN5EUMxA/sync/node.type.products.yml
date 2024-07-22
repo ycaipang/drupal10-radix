@@ -1,0 +1,17 @@
+uuid: 478daa29-9b48-4503-8ef7-9f39b017d379
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Products
+type: products
+description: 'FlagDisplays Products'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

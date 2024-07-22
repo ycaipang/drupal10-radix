@@ -1,0 +1,30 @@
+uuid: 7fa7df79-461c-49b0-ab9b-cabbf9ceeaa6
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+  module:
+    - block_content
+    - system
+  theme:
+    - bootstrap_sass
+id: bootstrap_sass_flagdisplays
+theme: bootstrap_sass
+region: content
+weight: -14
+provider: null
+plugin: 'block_content:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+settings:
+  id: 'block_content:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+  label: FlagDisplays
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

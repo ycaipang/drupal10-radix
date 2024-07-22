@@ -1,0 +1,29 @@
+uuid: 4f66dc2f-c90d-458c-b23a-87d2f0ec1462
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.product_homepage_teasers
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap_sass
+id: bootstrap_sass_views_block__product_homepage_teasers_block_6
+theme: bootstrap_sass
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:product_homepage_teasers-block_6'
+settings:
+  id: 'views_block:product_homepage_teasers-block_6'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /products

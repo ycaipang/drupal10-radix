@@ -1,0 +1,15 @@
+uuid: 3c8eb2cb-ee81-4162-8703-d5a5bf2e1186
+langcode: en
+status: true
+dependencies: {  }
+name: 165_x_220
+label: '165 x 220'
+effects:
+  a3569ed3-8d3a-49e1-948c-d0393c55ed36:
+    uuid: a3569ed3-8d3a-49e1-948c-d0393c55ed36
+    id: image_scale
+    weight: 2
+    data:
+      width: 165
+      height: 220
+      upscale: false

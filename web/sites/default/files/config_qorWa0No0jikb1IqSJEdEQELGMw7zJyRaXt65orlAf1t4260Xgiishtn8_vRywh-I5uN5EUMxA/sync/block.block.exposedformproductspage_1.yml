@@ -1,0 +1,28 @@
+uuid: b0e939a1-d0ff-42bf-b4bb-b4d3fa9ab509
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.products
+  module:
+    - system
+    - views
+  theme:
+    - YC_theme
+id: exposedformproductspage_1
+theme: YC_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_exposed_filter_block:products-page_1'
+settings:
+  id: 'views_exposed_filter_block:products-page_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/product-list\r\n/product-list/*\r\n/products"

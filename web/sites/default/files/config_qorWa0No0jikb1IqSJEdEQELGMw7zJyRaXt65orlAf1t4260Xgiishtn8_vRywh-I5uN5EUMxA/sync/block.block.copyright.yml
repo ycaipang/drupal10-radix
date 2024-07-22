@@ -1,0 +1,25 @@
+uuid: d110db88-61ee-4974-a54e-a21752384cd8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:2a6921fb-3e71-4bb8-a07a-b29fcb67c82f'
+  module:
+    - block_content
+  theme:
+    - YC_theme
+id: copyright
+theme: YC_theme
+region: footer_fifth
+weight: 0
+provider: null
+plugin: 'block_content:2a6921fb-3e71-4bb8-a07a-b29fcb67c82f'
+settings:
+  id: 'block_content:2a6921fb-3e71-4bb8-a07a-b29fcb67c82f'
+  label: Copyright
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

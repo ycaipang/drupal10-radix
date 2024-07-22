@@ -1,0 +1,15 @@
+uuid: 0ca7f3c9-e192-436f-b223-aab69c990148
+langcode: en
+status: true
+dependencies: {  }
+name: 900_x_316
+label: '900 x 316'
+effects:
+  782e5356-f35a-4c2d-9cc1-f27cd42b56c1:
+    uuid: 782e5356-f35a-4c2d-9cc1-f27cd42b56c1
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 420
+      anchor: center-center

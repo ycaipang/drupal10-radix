@@ -1,0 +1,34 @@
+uuid: 8a4305ea-1d04-4418-8323-6c1d0fd03ffb
+langcode: en
+status: true
+dependencies:
+  module:
+    - simplenews
+    - system
+  theme:
+    - radix
+id: radix_simplenewssubscription_2
+theme: radix
+region: content
+weight: -12
+provider: null
+plugin: simplenews_subscription_block
+settings:
+  id: simplenews_subscription_block
+  label: Subscribe
+  label_display: visible
+  provider: simplenews
+  newsletters: {  }
+  default_newsletters:
+    default: default
+    press_releases: press_releases
+    special_offers: special_offers
+    weekly_content_update: weekly_content_update
+  message: ''
+  show_manage: false
+  unique_id: a1d8077c-a571-4ea1-9604-55c7c8c07a17
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

@@ -1,0 +1,30 @@
+uuid: 81e74c21-1e42-445b-9f36-d1e209e1487b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+  module:
+    - block_content
+    - system
+  theme:
+    - YC_theme
+id: flagdisplays
+theme: YC_theme
+region: content
+weight: -14
+provider: null
+plugin: 'block_content:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+settings:
+  id: 'block_content:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+  label: FlagDisplays
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

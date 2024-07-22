@@ -1,0 +1,29 @@
+uuid: 84bc49d3-b425-4b04-9666-f36939b920fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.product_homepage_teasers
+  module:
+    - system
+    - views
+  theme:
+    - YC_theme
+id: views_block__product_homepage_teasers_block_3
+theme: YC_theme
+region: content
+weight: -10
+provider: null
+plugin: 'views_block:product_homepage_teasers-block_3'
+settings:
+  id: 'views_block:product_homepage_teasers-block_3'
+  label: Flags
+  label_display: visible
+  provider: views
+  views_label: Flags
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /products

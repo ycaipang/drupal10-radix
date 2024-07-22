@@ -1,0 +1,21 @@
+uuid: 082eab71-5ee9-4dc3-8599-b1c2a09cce1a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2dAnRDI42d0569hapLXrbx4-7VPsjU0fozi-WQfzcYE
+name: 'Weekly content update'
+id: weekly_content_update
+description: 'Weekly content update newsletter.'
+format: plain
+priority: 0
+receipt: false
+from_name: 'Drush Site-Install'
+subject: '[[simplenews-newsletter:name]] [node:title]'
+from_address: admin@example.com
+hyperlinks: true
+allowed_handlers: {  }
+new_account: none
+access: default
+reason: ''
+weight: 0

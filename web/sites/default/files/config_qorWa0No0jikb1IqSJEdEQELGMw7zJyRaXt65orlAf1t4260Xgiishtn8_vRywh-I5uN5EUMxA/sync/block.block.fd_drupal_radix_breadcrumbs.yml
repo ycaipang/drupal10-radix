@@ -1,0 +1,22 @@
+uuid: 04291643-cc1d-4925-91d7-6c4da3b4e954
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - fd_drupal_radix
+_core:
+  default_config_hash: TKGQga1b_sT6v0MZUWnev9zcTUFPx8LX8WpvCHW5qxY
+id: fd_drupal_radix_breadcrumbs
+theme: fd_drupal_radix
+region: header
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

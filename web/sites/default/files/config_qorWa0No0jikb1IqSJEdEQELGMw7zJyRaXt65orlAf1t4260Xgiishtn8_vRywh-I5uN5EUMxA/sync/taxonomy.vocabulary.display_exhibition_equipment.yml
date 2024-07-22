@@ -1,0 +1,9 @@
+uuid: 0a1d360a-6270-4f93-b579-da5532d58a73
+langcode: en
+status: true
+dependencies: {  }
+name: 'Display & Exhibition Equipment'
+vid: display_exhibition_equipment
+description: null
+weight: 0
+new_revision: false

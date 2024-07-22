@@ -1,0 +1,31 @@
+uuid: 27250832-329c-4ed9-abd6-47685cfe67d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.testimonial
+    - field.field.block_content.testimonial.body
+    - field.field.block_content.testimonial.field_name_company
+  module:
+    - text
+id: block_content.testimonial.default
+targetEntityType: block_content
+bundle: testimonial
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_name_company:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

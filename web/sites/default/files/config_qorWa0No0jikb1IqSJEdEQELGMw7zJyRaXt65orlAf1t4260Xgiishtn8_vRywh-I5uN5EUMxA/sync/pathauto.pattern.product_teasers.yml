@@ -1,0 +1,22 @@
+uuid: 7810ef3c-df36-47c9-b554-2d236d7a547b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: product_teasers
+label: 'Product teasers'
+type: 'canonical_entities:node'
+pattern: 'product-teaser/[node:title]'
+selection_criteria:
+  9e083ef4-4979-41e7-ba3c-963e1e02d05c:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 9e083ef4-4979-41e7-ba3c-963e1e02d05c
+    context_mapping:
+      node: node
+    bundles:
+      product_teaser: product_teaser
+selection_logic: and
+weight: -5
+relationships: {  }

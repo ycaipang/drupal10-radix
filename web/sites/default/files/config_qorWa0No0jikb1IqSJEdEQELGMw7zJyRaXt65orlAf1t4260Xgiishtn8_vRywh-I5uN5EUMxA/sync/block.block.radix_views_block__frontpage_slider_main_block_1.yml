@@ -1,0 +1,29 @@
+uuid: d045528c-165d-4208-8848-ba379bafba55
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.frontpage_slider_main
+  module:
+    - system
+    - views
+  theme:
+    - radix
+id: radix_views_block__frontpage_slider_main_block_1
+theme: radix
+region: navbar_branding
+weight: -11
+provider: null
+plugin: 'views_block:frontpage_slider_main-block_1'
+settings:
+  id: 'views_block:frontpage_slider_main-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

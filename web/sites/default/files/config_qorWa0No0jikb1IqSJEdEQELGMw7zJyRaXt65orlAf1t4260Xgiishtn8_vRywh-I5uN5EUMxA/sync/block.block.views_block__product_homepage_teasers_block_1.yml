@@ -1,0 +1,29 @@
+uuid: 9a165fe5-fcb0-49ba-8e35-7ea8b7b4fc77
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.product_homepage_teasers
+  module:
+    - system
+    - views
+  theme:
+    - YC_theme
+id: views_block__product_homepage_teasers_block_1
+theme: YC_theme
+region: content
+weight: -13
+provider: null
+plugin: 'views_block:product_homepage_teasers-block_1'
+settings:
+  id: 'views_block:product_homepage_teasers-block_1'
+  label: 'Choose from our Flags'
+  label_display: visible
+  provider: views
+  views_label: 'Choose from our Flags'
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
