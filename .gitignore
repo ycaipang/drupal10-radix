@@ -14,6 +14,7 @@
 /web/sites/*/private
 /web/sites/*/files-public
 /web/sites/*/files-private
+/web/sites/*/files/php
 /db
 
 # Ignore paths that may contain temporary files
