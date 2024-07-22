@@ -1,0 +1,30 @@
+uuid: 166f4889-a334-4e71-9051-62dc874a3d47
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+  module:
+    - block_content
+    - system
+  theme:
+    - radix
+id: radix_flagdisplays
+theme: radix
+region: content
+weight: -14
+provider: null
+plugin: 'block_content:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+settings:
+  id: 'block_content:e2f7ab9a-1a5b-446f-a7ac-555a1403d8c6'
+  label: FlagDisplays
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

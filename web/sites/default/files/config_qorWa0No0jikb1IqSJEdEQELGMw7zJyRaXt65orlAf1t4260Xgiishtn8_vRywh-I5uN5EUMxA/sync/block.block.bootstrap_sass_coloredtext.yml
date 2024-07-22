@@ -1,0 +1,25 @@
+uuid: aa15afa9-4550-40aa-970d-e238dfc8f762
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+  module:
+    - block_content
+  theme:
+    - bootstrap_sass
+id: bootstrap_sass_coloredtext
+theme: bootstrap_sass
+region: featured_top
+weight: -12
+provider: null
+plugin: 'block_content:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+settings:
+  id: 'block_content:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+  label: 'Colored text'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

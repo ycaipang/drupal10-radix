@@ -1,0 +1,8 @@
+uuid: c13249c6-6397-4420-9830-3eb516a0bc9f
+langcode: en
+status: true
+dependencies: {  }
+id: testimonial
+label: Testimonial
+revision: false
+description: 'client testimonial'

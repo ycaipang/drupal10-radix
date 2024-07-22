@@ -1,0 +1,28 @@
+uuid: a6a21a12-7139-4255-ad21-4464a4242d7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_city
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_first_name
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_last_name
+    - field.field.simplenews_subscriber.simplenews_subscriber.field_name
+  module:
+    - simplenews
+id: simplenews_subscriber.simplenews_subscriber.default
+targetEntityType: simplenews_subscriber
+bundle: simplenews_subscriber
+mode: default
+content:
+  field_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_city: true
+  field_first_name: true
+  field_last_name: true

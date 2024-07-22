@@ -1,0 +1,29 @@
+uuid: 5399dc50-c610-4b37-8022-ec581ef1b28a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_exhibition_equipme
+    - node.type.product_teaser
+    - taxonomy.vocabulary.display_exhibition_equipment
+id: node.product_teaser.field_display_exhibition_equipme
+field_name: field_display_exhibition_equipme
+entity_type: node
+bundle: product_teaser
+label: 'Display & Exhibition Equipment'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      display_exhibition_equipment: display_exhibition_equipment
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: 951cbb85-0d41-4e51-bb4a-bda968db910e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - YC_theme
+id: pagetitle
+theme: YC_theme
+region: breadcrumb
+weight: -14
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

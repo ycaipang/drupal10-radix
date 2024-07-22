@@ -1,0 +1,20 @@
+uuid: 1e7f3b8b-2a47-4e69-8f48-d9666553ad6e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - fd_drupal_radix
+_core:
+  default_config_hash: DaF8zRMjC0F3RTkW3yP_cMi_nqwPHt3H5bdR5LN_2fA
+id: fd_drupal_radix_page_title
+theme: fd_drupal_radix
+region: header
+weight: -2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

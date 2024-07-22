@@ -1,0 +1,27 @@
+uuid: 147e3dd4-585c-4e3b-bcca-1ffb9f1735e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - fd_drupal_radix
+_core:
+  default_config_hash: fLtDfV_l2FBNSIpM8wzL1_fF-5J-i0ezwWuOJmz0ddY
+id: fd_drupal_radix_main_menu
+theme: fd_drupal_radix
+region: navbar_left
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: false
+visibility: {  }

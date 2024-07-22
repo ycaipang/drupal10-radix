@@ -1,0 +1,9 @@
+uuid: 6ab96251-7b76-4649-ae13-d933de17e649
+langcode: en
+status: true
+dependencies: {  }
+name: 'Flags Category'
+vid: flags_category
+description: null
+weight: 0
+new_revision: false

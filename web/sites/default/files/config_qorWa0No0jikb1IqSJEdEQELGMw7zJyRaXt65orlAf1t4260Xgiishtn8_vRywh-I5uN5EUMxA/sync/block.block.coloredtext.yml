@@ -1,0 +1,25 @@
+uuid: 9e5ed0d8-feda-4d87-9b7a-75582dc0a5a8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+  module:
+    - block_content
+  theme:
+    - YC_theme
+id: coloredtext
+theme: YC_theme
+region: featured_top
+weight: -12
+provider: null
+plugin: 'block_content:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+settings:
+  id: 'block_content:eb2a32a0-f2a6-43e8-8e01-421449415e08'
+  label: 'Colored text'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
