@@ -14,6 +14,7 @@
 /web/sites/*/private
 /web/sites/*/files-public
 /web/sites/*/files-private
+/web/sites/*/files/php
 /db
 
 # Ignore paths that may contain temporary files
@@ -36,11 +37,6 @@
 /drush
 /drupal.phar
 /drupal
-<<<<<<< HEAD
 /.lando.yml
-=======
-/.lando
->>>>>>> 8d11f804783c853a2dd65bdaa8ab5ba346b44559
-
 /.editorconfig
 /.gitattributes
