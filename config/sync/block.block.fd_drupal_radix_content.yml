@@ -1,0 +1,22 @@
+uuid: da864df6-ee29-45c6-bf69-2d16a2e7cc43
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - fd_drupal_radix
+_core:
+  default_config_hash: 47dvcyU4XnHlJrxhlpGzOipt_LhBowimV_HZ5RlyNbg
+id: fd_drupal_radix_content
+theme: fd_drupal_radix
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }
