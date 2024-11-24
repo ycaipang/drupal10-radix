@@ -21,6 +21,7 @@
 /web/sites/*/tmp
 /web/sites/*/cache
 /web/sites/*/php
+/web/sites/default/files/php/
 
 # subtheme dependencies
 
