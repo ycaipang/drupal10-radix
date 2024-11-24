@@ -1,4 +1,4 @@
-name: drupal-radix-fd
+name: FD Radix
 recipe: drupal10
 config:
   webroot: web
