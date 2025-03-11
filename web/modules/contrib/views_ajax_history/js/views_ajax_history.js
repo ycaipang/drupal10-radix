@@ -39,7 +39,7 @@
     attach: function (context, drupalSettings) {
       // Init the current page too, because the first loaded pager element do
       // not have loadable history and will not work the back button.
-      if (once('body', 'views-ajax-history-first-page-load').length) {
+      if (once('views-ajax-history-first-page-load', 'body').length) {
         drupalSettings.viewsAjaxHistory.onloadPageItem = drupalSettings.viewsAjaxHistory.renderPageItem;
       }
     }
@@ -97,7 +97,7 @@
    *   String URL with views values and reduced duplicates.
    */
   var cleanURL = function (url, viewArgs) {
-    var args = parseQueryString(url);
+    var args = ('reset' in viewArgs) ? {} : parseQueryString(url);
     var query = [];
 
     // With clean urls off we need to add the 'q' parameter.
@@ -110,7 +110,7 @@
       if (name in viewArgs) {
         value = viewArgs[name];
       }
-      if ($.isArray(value)) {
+      if (Array.isArray(value)) {
         $.merge(query, $.map($.unique(value), function (sub) {
           return name + '=' + encodeURIComponent(sub);
         }));
@@ -209,7 +209,8 @@
       setClick: true,
       event: 'click',
       selector: '.view-dom-id-' + options.data.view_dom_id,
-      progress: { type: 'throbber' }
+      progress: { type: 'throbber' },
+      httpMethod: 'GET',
     }, options);
 
     var viewsAjaxSubmit = Drupal.ajax(settings);
@@ -250,7 +251,21 @@
   Drupal.Ajax.prototype.beforeSerialize = function (element, options) {
     // Check that we handle a click on a link, not a form submission.
     if (options.data.view_name && element && $(element).is('a')) {
-      addState(options, $(element).attr('href'));
+      let params = new URLSearchParams($(element).attr('href'));
+      if (!$.isEmptyObject(drupalSettings.viewsAjaxHistory.excludeArgs)) {
+        var keysToRemove = [];
+        $.each(drupalSettings.viewsAjaxHistory.excludeArgs, function (index, pathToExclude) {
+          params.forEach(function (value, key, parent) {
+            if (key.startsWith(pathToExclude)) {
+              keysToRemove.push(key);
+            }
+          });
+        });
+        keysToRemove.forEach(function (key) {
+          params.delete(key)
+        });
+      }
+      addState(options, '?' + params.toString());
     }
 
     // Call the original Drupal method with the right context.
@@ -272,10 +287,15 @@
       var url = original.path + '?' + new URLSearchParams(new FormData(element.get(0))).toString();
       var currentQuery = parseQueryString(window.location.href);
 
+      // Prepare ajax url
+      var ajaxUrl = options.url.split('?')[0];
+      var ajaxQuery = parseQueryString(options.url);
+
       // Remove the page number from the query string, as a new filter has been
       // applied and should return new results.
       if ($.inArray("page", Object.keys(currentQuery)) !== -1) {
         delete currentQuery.page;
+        delete ajaxQuery.page;
       }
 
       // Copy selected values in history state.
@@ -297,6 +317,7 @@
       element.find('[name]').each(function () {
         if (currentQuery[this.name]) {
           delete currentQuery[this.name];
+          delete ajaxQuery[this.name];
         }
       });
 
@@ -310,18 +331,46 @@
           else if (options.data[this.name]) {
             delete options.data[this.name];
           }
+          if (ajaxQuery[this.name]) {
+            delete ajaxQuery[this.name];
+          }
         }
       });
 
+      // Helper function to remove multi-value query keys that match a given
+      // name
+      let removeMultiValueQueryKeys = function (multiValueParamToRemove, queryParams) {
+        Object.getOwnPropertyNames(queryParams).forEach(function (queryKey) {
+          let queryKeyWithoutBracket = queryKey.replace(/\[\d+]$/, '');
+          if (multiValueParamToRemove === queryKeyWithoutBracket) {
+            delete queryParams[queryKey];
+          }
+        });
+        return queryParams;
+      };
+
       // If the exposed form has a multiple select.
-      element.find('.form-select[multiple=multiple]').each(function (key, value) {
+      element.find('select[multiple]').each(function (key, value) {
         if ($(value).val().length === 0) {
           delete options.data[this.name];
           delete currentQuery[this.name];
+          delete ajaxQuery[this.name];
         }
+        // Pagers creates query params that are indexed like this:
+        // ?someparam[0]=123,someparam[1]=456
+        // instead of this:
+        // ?someparam[]=123&someparam[]=456
+        // We need to clear them out. The submitted form values will use the
+        // non-indexed versions, and we can't have the indexed versions creating
+        // a conflict.
+        let nameWithoutBracket = this.name.replace(/\[]$/, '');
+        currentQuery = removeMultiValueQueryKeys(nameWithoutBracket, currentQuery);
+        ajaxQuery = removeMultiValueQueryKeys(nameWithoutBracket, ajaxQuery);
       });
 
       url += (/\?/.test(url) ? '&' : '?') + $.param(currentQuery);
+      // Update options with updated ajax url.
+      options.url = ajaxUrl + '?' + $.param(ajaxQuery);
       addState(options, url);
     }
     // Call the original Drupal method with the right context.

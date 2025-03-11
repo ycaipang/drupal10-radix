@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\simplenews\Functional;
 
+use Drupal\Core\Url;
 use Drupal\simplenews\Entity\Subscriber;
-use Drupal\user\Entity\User;
 
 /**
  * Tests that shared fields are synchronized when using forms.
@@ -57,33 +57,43 @@ class SimplenewsSynchronizeFieldsFormTest extends SimplenewsTestBase {
     $subscriber->save();
     $this->assertEquals($this->user->id(), $subscriber->getUserId());
 
+    $subscriber_edit_url = Url::fromRoute(
+      'entity.simplenews_subscriber.edit_form',
+      ['simplenews_subscriber' => $subscriber->id()],
+    );
+
     // Edit subscriber field and assert user field is changed accordingly.
     $this->drupalLogin($this->user);
-    $this->drupalGet('admin/people/simplenews/edit/' . $subscriber->id());
-    $this->assertSession()->fieldExists('field_shared[0][value]');
-    $this->assertSession()->responseContains($this->user->field_shared->value);
+    $this->drupalGet($subscriber_edit_url);
+    $field = $this->assertSession()->fieldExists('field_shared[0][value]');
+    $this->assertEquals($this->user->field_shared->value, $field->getValue());
 
     $new_value = $this->randomMachineName();
     $this->submitForm(['field_shared[0][value]' => $new_value], 'Save');
-    $this->drupalGet('admin/people/simplenews/edit/' . $subscriber->id());
-    $this->assertSession()->responseContains($new_value);
+    $this->drupalGet($subscriber_edit_url);
+    $field = $this->assertSession()->fieldExists('field_shared[0][value]');
+    $this->assertEquals($new_value, $field->getValue());
 
-    $this->user = User::load($this->user->id());
-    $this->assertEquals($new_value, $this->user->field_shared->value);
+    $user_edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $this->user->id()]);
+    $this->drupalGet($user_edit_url);
+    $field = $this->assertSession()->fieldExists('field_shared[0][value]');
+    $this->assertEquals($new_value, $field->getValue());
 
     // Unset the sync setting and assert field is not synced.
-    $this->drupalGet('admin/config/people/simplenews/settings/subscriber');
+    $this->drupalGet(Url::fromRoute('simplenews.settings_subscriber'));
     $this->submitForm(['simplenews_sync_fields' => FALSE], 'Save configuration');
 
     $unsynced_value = $this->randomMachineName();
-    $this->drupalGet('admin/people/simplenews/edit/' . $subscriber->id());
+    $this->drupalGet($subscriber_edit_url);
     $this->submitForm(['field_shared[0][value]' => $unsynced_value], 'Save');
-    $this->drupalGet('admin/people/simplenews/edit/' . $subscriber->id());
-    $this->assertSession()->responseContains($unsynced_value);
+    $this->drupalGet($subscriber_edit_url);
+    $field = $this->assertSession()->fieldExists('field_shared[0][value]');
+    $this->assertEquals($unsynced_value, $field->getValue());
 
-    $this->user = User::load($this->user->id());
-    $this->assertEquals($new_value, $this->user->field_shared->value);
-    $this->assertNotEquals($unsynced_value, $this->user->field_shared->value);
+    $this->drupalGet($user_edit_url);
+    $field = $this->assertSession()->fieldExists('field_shared[0][value]');
+    $this->assertEquals($new_value, $field->getValue());
+    $this->assertNotEquals($unsynced_value, $field->getValue());
   }
 
 }

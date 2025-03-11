@@ -2,8 +2,11 @@
 
 namespace Drupal\simplenews_demo\Plugin\simplenews\RecipientHandler;
 
+use Drupal\Component\Utility\Html;
 use Drupal\simplenews\Plugin\simplenews\RecipientHandler\RecipientHandlerEntityBase;
 use Drupal\simplenews\SubscriberInterface;
+use Drupal\user\Entity\Role;
+use Drupal\user\RoleInterface;
 
 /**
  * This handler sends to all subscribers with the specified role.
@@ -19,7 +22,9 @@ class RecipientHandlerSubscribersByRole extends RecipientHandlerEntityBase {
    * {@inheritdoc}
    */
   public function settingsForm() {
-    $roles = array_map(['\Drupal\Component\Utility\Html', 'escape'], user_role_names(TRUE));
+    $roles = Role::loadMultiple();
+    unset($roles[RoleInterface::ANONYMOUS_ID]);
+    $roles = array_map(fn(RoleInterface $role) => Html::escape($role->label()), $roles);
 
     $element['role'] = [
       '#type' => 'select',

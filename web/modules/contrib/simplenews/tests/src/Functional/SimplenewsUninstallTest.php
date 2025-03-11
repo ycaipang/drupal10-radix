@@ -46,14 +46,14 @@ class SimplenewsUninstallTest extends SimplenewsTestBase {
     // Uninstall the module.
     $this->drupalGet('admin/modules/uninstall');
     $this->submitForm(['uninstall[simplenews]' => TRUE], 'Uninstall');
-    $this->submitForm([], t('Uninstall'));
+    $this->submitForm([], 'Uninstall');
     $this->assertSession()->pageTextContains('The selected modules have been uninstalled.');
     $this->assertSession()->pageTextNotContains('Simplenews');
 
     // Make sure that the module can be installed again.
     $this->drupalGet('admin/modules');
     $this->submitForm(['modules[simplenews][enable]' => TRUE], 'Install');
-    $this->assertSession()->pageTextContains('Module Simplenews has been enabled.');
+    $this->assertSession()->pageTextContains('Module Simplenews has been installed.');
   }
 
 }

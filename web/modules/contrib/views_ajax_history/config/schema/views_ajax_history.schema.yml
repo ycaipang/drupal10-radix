@@ -4,3 +4,6 @@ views.display_extender.ajax_history:
     enable_history:
       type: boolean
       label: 'Enable history'
+    exclude_args:
+      type: text
+      label: 'Exclude query arguments from the URL'

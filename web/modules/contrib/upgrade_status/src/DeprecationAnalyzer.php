@@ -374,7 +374,7 @@ final class DeprecationAnalyzer {
     $process->run();
 
     // If there was an error about lack of files, that is fine for us, an
-    // extension does not neccessarily need PHP files. Use a standard
+    // extension does not necessarily need PHP files. Use a standard
     // empty resultset for this case.
     $stderr = trim($process->getErrorOutput()) ?: 'Empty.';
     if (strpos($stderr, 'No files found to analyse.') !== FALSE) {
@@ -510,27 +510,6 @@ final class DeprecationAnalyzer {
       }
     }
 
-    // For contributed projects, attempt to grab upgrade plan information.
-    if (!empty($extension->info['project'])) {
-      try {
-        /** @var \Psr\Http\Message\ResponseInterface $response */
-        $response = $this->httpClient->request('GET', 'https://www.drupal.org/api-d7/node.json?field_project_machine_name=' . $extension->getName());
-        if ($response->getStatusCode()) {
-          $data = json_decode($response->getBody(), TRUE);
-          if (!empty($data['list'][0]['field_next_major_version_info']['value'])) {
-            $result['plans'] = str_replace('href="/', 'href="https://drupal.org/', $data['list'][0]['field_next_major_version_info']['value']);
-            // @todo implement "replaced by" collection once drupal.org exposes
-            // that in an accessible way
-            // @todo once/if drupal.org deprecation testing is in place, grab
-            // the status from there so we know if it improves by updating
-          }
-        }
-      }
-      catch (\Exception $e) {
-        $this->logger->error($e->getMessage());
-      }
-    }
-
     // Store the analysis results in our storage bin.
     $this->scanResultStorage->set($extension->getName(), $result);
   }
@@ -576,11 +555,6 @@ final class DeprecationAnalyzer {
     $config = str_replace(
       'parameters:',
       "parameters:\n\ttmpDir: '" . $this->temporaryDirectory . '/phpstan' . "'",
-      $config
-    );
-    $config = str_replace(
-      "\tdrupal:",
-      "\tdrupal:\n\t\tdrupal_root: '" . DRUPAL_ROOT . "'",
       $config
     );
 
@@ -675,6 +649,11 @@ final class DeprecationAnalyzer {
       $category = 'rector';
     }
 
+    // Ignore the broken messages for EntityStorageInterface deprecation.
+    if (strpos($error, 'of interface Drupal\Core\Entity\EntityStorageInterface. Deprecated in drupal:10.1.0 and is removed from drupal:11.0.0. Use Drupal\Core\Entity\RevisionableStorageInterface') !== FALSE) {
+      $category = 'ignore';
+    }
+
     // If the deprecation is already for after the next Drupal major, put it in the
     // ignore category. This overwrites any categorization before intentionally.
     if (preg_match('!(will be|is) removed (before|from) [Dd]rupal[ :](\d+)\.!', $error, $version_removed)) {
@@ -687,6 +666,11 @@ final class DeprecationAnalyzer {
     // released yet, so compatibility cannot be proven. Stop ignoring this error from
     // Drupal 11 as a safeguard.
     if (strpos($error, 'guzzlehttp/guzzle:8.0') !== FALSE && ProjectCollector::getDrupalCoreMajorVersion() < 11) {
+      $category = 'ignore';
+    }
+
+    // Ignore twig 3.12 false positives (until core fixes them).
+    if (strpos($error, 'Since twig/twig 3.12') !== FALSE && ProjectCollector::getDrupalCoreMajorVersion() < 11) {
       $category = 'ignore';
     }
 
