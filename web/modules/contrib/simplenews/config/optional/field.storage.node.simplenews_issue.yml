@@ -1,6 +1,6 @@
 id: simplenews_issue
 status: true
-langcode: und
+langcode: en
 field_name: simplenews_issue
 entity_type: node
 type: simplenews_issue

@@ -767,13 +767,15 @@ function simplenews_help($route_name, RouteMatchInterface $route_match) {
  *   The email address.
  * @param string $action
  *   The action: confirm, manage, add or remove.
- * @param int $timestamp
+ * @param int|null $timestamp
  *   The timestamp of the request.
  *
  * @return string
  *   The hash key.
  */
-function simplenews_generate_hash(string $mail, string $action, int $timestamp = REQUEST_TIME) {
+function simplenews_generate_hash(string $mail, string $action, ?int $timestamp = NULL) {
+  $timestamp ??= \Drupal::time()->getRequestTime();
+
   $data = $mail . \Drupal::service('private_key')->get() . $action . $timestamp;
   return Crypt::hashBase64($data);
 }

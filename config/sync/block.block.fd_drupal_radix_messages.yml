@@ -1,0 +1,22 @@
+uuid: 4a005551-76c5-4a09-aafa-0f38be7b61c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - fd_drupal_radix
+_core:
+  default_config_hash: wgWBgaRuoG9bQZwJ45nOuayAn7WZRRt4CB3KGj3r-LA
+id: fd_drupal_radix_messages
+theme: fd_drupal_radix
+region: header
+weight: -3
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

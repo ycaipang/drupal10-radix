@@ -20,9 +20,8 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
-        options:
-          perm: 'administer simplenews subscriptions'
+        type: simplenews_subscribers_list_access
+        options: {  }
       cache:
         type: none
         options: {  }

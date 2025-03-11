@@ -19,6 +19,7 @@
         "drupal/admin_toolbar": "^3.4",
         "drupal/admin_toolbar_tools": "^3.4",
         "drupal/better_exposed_filters": "^6.0",
+        "drupal/commerce": "^3.0",
         "drupal/composer_deploy": "^1.7",
         "drupal/conditional_fields": "^4.0@alpha",
         "drupal/core-composer-scaffold": "^10",
@@ -26,6 +27,7 @@
         "drupal/core-recommended": "^10",
         "drupal/devel": "^5.0",
         "drupal/field_group": "^3.4",
+        "drupal/inline_entity_form": "^3.0@RC",
         "drupal/paragraphs": "^1.17",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.2",
@@ -48,7 +50,8 @@
             "drupal/core-project-message": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "php-http/discovery": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "tbachert/spi": true
         },
         "sort-packages": true
     },

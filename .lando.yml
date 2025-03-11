@@ -1,0 +1,7 @@
+name: FD Radix
+recipe: drupal10
+config:
+  webroot: web
+services:
+  myservice:
+    type: 'php:8.2'

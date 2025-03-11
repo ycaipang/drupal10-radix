@@ -155,6 +155,10 @@ class SubscriptionsBlockForm extends SubscriptionsFormBase {
       ];
     }
 
+    if (\Drupal::currentUser()->isAnonymous()) {
+      $form['langcode']['widget'][0]['value']['#default_value'] = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    }
+
     return $form;
   }
 

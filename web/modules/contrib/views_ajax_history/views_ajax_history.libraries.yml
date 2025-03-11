@@ -1,5 +1,4 @@
 history:
-  version: VERSION
   js:
     js/views_ajax_history.js: {}
   dependencies:

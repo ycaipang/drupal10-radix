@@ -36,6 +36,17 @@ class AjaxHistory extends DisplayExtenderPluginBase {
           ],
         ],
       ];
+      $form['exclude_args'] = [
+        '#title' => $this->t('Exclude query arguments from the URL'),
+        '#type' => 'textarea',
+        '#description' => $this->t('Add the list of query arguments that you want to exclude from the URL. You need to specify each key in a separated line and they will be excluded with a "Started by" operation.'),
+        '#default_value' => $this->options['exclude_args'] ?? '',
+        '#states' => [
+          'visible' => [
+            ':input[name="enable_history"]' => ['checked' => TRUE],
+          ],
+        ],
+      ];
     }
   }
 
@@ -55,6 +66,7 @@ class AjaxHistory extends DisplayExtenderPluginBase {
   public function submitOptionsForm(&$form, FormStateInterface $form_state) {
     if ($form_state->get('section') == 'use_ajax') {
       $this->options['enable_history'] = $form_state->getValue('enable_history');
+      $this->options['exclude_args'] = $form_state->getValue('exclude_args');
     }
   }
 

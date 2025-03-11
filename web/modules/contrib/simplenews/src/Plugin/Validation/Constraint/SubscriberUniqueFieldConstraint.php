@@ -17,7 +17,7 @@ class SubscriberUniqueFieldConstraint extends UniqueFieldConstraint {
   /**
    * {@inheritdoc}
    */
-  public function validatedBy() {
+  public function validatedBy(): string {
     return '\Drupal\simplenews\Plugin\Validation\Constraint\SubscriberUniqueValidator';
   }
 

@@ -11,6 +11,7 @@ use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\simplenews\Entity\Newsletter;
 use Drupal\simplenews\Entity\Subscriber;
 use Drupal\simplenews\Entity\SubscriberHistory;
@@ -734,4 +735,13 @@ function simplenews_update_840010() {
       $newsletter->save();
     }
   }
+}
+
+/**
+ * Update langcode for field.storage.node.simplenews_issue.yml
+ */
+function simplenews_update_940000() {
+  $storage_config = FieldStorageConfig::loadByName('node', 'simplenews_issue');
+  $storage_config->set('langcode', 'en');
+  $storage_config->save();
 }

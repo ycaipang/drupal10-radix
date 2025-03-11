@@ -5,7 +5,7 @@ namespace Drupal\Tests\simplenews\Functional;
 use Drupal\Component\Utility\Html;
 use Drupal\node\Entity\Node;
 use Drupal\simplenews\Entity\Subscriber;
-use Drupal\simplenews\Mail\MailTest;
+use Drupal\simplenews\Mail\TestMail;
 use Drupal\simplenews\Spool\SpoolStorageInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Header\MailboxHeader;
@@ -76,7 +76,7 @@ class SimplenewsSourceTest extends SimplenewsTestBase {
   public function testSendMinimalSourceImplementation() {
 
     // Create a basic plaintext test source and send it.
-    $plain_mail = new MailTest('plain');
+    $plain_mail = new TestMail('plain');
     \Drupal::service('simplenews.mailer')->sendMail($plain_mail);
     $mails = $this->getMails();
     $mail = $mails[0];
@@ -101,7 +101,7 @@ class SimplenewsSourceTest extends SimplenewsTestBase {
     $config = $this->config('simplenews.settings');
     $config->set('mail.textalt', TRUE);
     $config->save();
-    $html_mail = new MailTest('html');
+    $html_mail = new TestMail('html');
     \Drupal::service('simplenews.mailer')->sendMail($html_mail);
     $mails = $this->getMails();
     $mail = $mails[1];

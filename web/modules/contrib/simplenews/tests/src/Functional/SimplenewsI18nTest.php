@@ -21,7 +21,11 @@ class SimplenewsI18nTest extends SimplenewsTestBase {
    * @var array
    */
   protected static $modules = [
-    'locale', 'config_translation', 'content_translation',
+    'config_translation',
+    'content_translation',
+    'field_ui',
+    'locale',
+    'node',
   ];
 
   /**
@@ -51,7 +55,22 @@ class SimplenewsI18nTest extends SimplenewsTestBase {
   protected function setUp(): void {
     parent::setUp();
     $this->adminUser = $this->drupalCreateUser([
-      'bypass node access', 'administer nodes', 'administer languages', 'administer content types', 'access administration pages', 'administer filters', 'translate interface', 'subscribe to newsletters', 'administer site configuration', 'translate any entity', 'administer content translation', 'administer simplenews subscriptions', 'send newsletter', 'create content translations',
+      'access administration pages',
+      'administer content translation',
+      'administer content types',
+      'administer filters',
+      'administer languages',
+      'administer node fields',
+      'administer nodes',
+      'administer simplenews subscriptions',
+      'administer site configuration',
+      'bypass node access',
+      'create content translations',
+      'send newsletter',
+      'subscribe to newsletters',
+      'translate any entity',
+      'translate configuration',
+      'translate interface',
     ]);
     $this->drupalLogin($this->adminUser);
     $this->setUpLanguages();
@@ -122,7 +141,7 @@ class SimplenewsI18nTest extends SimplenewsTestBase {
       'language_configuration[content_translation]' => TRUE,
     ];
     $this->drupalGet('admin/structure/types/manage/simplenews_issue');
-    $this->submitForm($edit, 'Save content type');
+    $this->submitForm($edit, 'Save');
 
     // Create a Newsletter including a translation.
     $newsletter_id = $this->getRandomNewsletter();
@@ -150,7 +169,7 @@ class SimplenewsI18nTest extends SimplenewsTestBase {
 
     // Send newsletter.
     $this->clickLink(t('Newsletter'));
-    $this->submitForm([], t('Send now'));
+    $this->submitForm([], 'Send now');
     $this->cronRun();
 
     $this->assertCount(3, $this->getMails());
@@ -203,6 +222,106 @@ class SimplenewsI18nTest extends SimplenewsTestBase {
       'langcode[0][value]' => 'es',
     ];
     $this->submitForm($edit, 'Save');
+  }
+
+  /**
+   * Test anonymous subscription with prefered language.
+   *
+   * Steps performed:
+   *   0. Preparation
+   *   1. Subscribe anonymous via block.
+   */
+  public function testSubscribeAnonymousSingleWithCurrentInterfaceLanguage() {
+    // 0. Preparation
+    // Set global skip_verification to TRUE
+    // Login admin
+    // Create single opt in newsletter.
+    // Set permission for anonymous to subscribe
+    // Enable newsletter block
+    // Logout admin.
+    $config = $this->config('simplenews.settings');
+    $config->set('subscription.skip_verification', TRUE);
+    $config->save();
+    $admin_user = $this->drupalCreateUser([
+      'administer blocks',
+      'administer content types',
+      'administer nodes',
+      'access administration pages',
+      'administer permissions',
+      'administer newsletters',
+    ]
+    );
+    $this->drupalLogin($admin_user);
+
+    $this->drupalGet('admin/config/services/simplenews');
+    $this->clickLink(t('Add newsletter'));
+    $name = $this->randomMachineName();
+    $edit = [
+      'name' => $name,
+      'id' => strtolower($name),
+      'description' => $this->randomString(20),
+      'access' => 'default',
+    ];
+    $this->submitForm($edit, 'Save');
+
+    $this->drupalLogout();
+
+    $newsletter_id = $edit['id'];
+
+    // Setup subscription block with subscription form.
+    $block_settings = [
+      'default_newsletters' => [$newsletter_id],
+      'message' => $this->randomMachineName(4),
+    ];
+    $this->setupSubscriptionBlock($block_settings);
+
+    // 1. Subscribe anonymous via block
+    // Subscribe + submit
+    // Assert confirmation message
+    // Verify subscription state.
+    $mail = $this->randomEmail(8);
+    $edit = [
+      'mail[0][value]' => $mail,
+    ];
+    $this->drupalGet('/es');
+    $this->submitForm($edit, 'Subscribe');
+    $this->assertSession()->pageTextContains('You have been subscribed.');
+
+    $subscriber = $this->getLatestSubscriber();
+    $this->assertEquals($mail, $subscriber->getMail());
+    $this->assertTrue($subscriber->isSubscribed($newsletter_id));
+    $this->assertEquals('es', $subscriber->getLangcode(), 'Subscriber prefered language is set to user interface language');
+  }
+
+  /**
+   * Tests simplenews issue field translation is available.
+   */
+  public function testSimplenewsIssueFieldTranslationIsAvailable() {
+    $field = FieldConfig::loadByName('node', 'simplenews_issue', 'simplenews_issue');
+    $field_storage = $field->getFieldStorageDefinition();
+
+    $target_bundle = $field->getTargetBundle();
+    $field_id = $field->id();
+
+    $this->drupalGet("admin/structure/types/manage/$target_bundle/fields/$field_id/translate");
+    $this->assertSession()->statusCodeEquals(200);
+
+    // Additional check for https://www.drupal.org/project/simplenews/issues/2994925
+    $this->assertSession()->pageTextNotContains("The configuration objects have different language codes so they cannot be translated");
+    $config_object_name = sprintf(
+      'field.storage.%s.%s: %s',
+      $field->getTargetEntityTypeId(),
+      $field_storage->getName(),
+      $field_storage->language()->getId(),
+    );
+    $this->assertSession()->pageTextNotContains($config_object_name);
+
+    $url_to_add_translation = "admin/structure/types/manage/$target_bundle/fields/$field_id/translate/es/add";
+    $this->assertSession()->linkByHrefExists($url_to_add_translation);
+
+    $this->drupalGet($url_to_add_translation);
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->pageTextContains('Add Spanish translation for Newsletter');
   }
 
 }
